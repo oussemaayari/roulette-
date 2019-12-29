@@ -1,0 +1,107 @@
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+int main(){
+ int empty_bullets,i=0,bullet=0;
+
+ int k=0,j=0,P1=0,P2=0;
+ int t[100];
+ char player1[15];
+ char player2[15];
+    system ("COLOR 0c");
+    printf("\n                     WELCOME TO RUSSIAN ROULETTE                    \n");
+printf("             .-.____________________.-.\n");
+printf("      ___  _.' .-----.    _____________|\n");
+printf("     /_._/   (      |   /_____________|\n ");
+printf("       /      `  _ ____/\n ");
+printf("      |_      .\( \\ \n ");
+printf("     .'  `-._/__`_//\n");
+printf("   .'       |\n " );
+printf("  /        /\n");
+printf(" /        |\n");
+printf(" |        '\n");
+printf(" |         \ \n" );
+printf(" `-._____.-'\n");
+
+    printf("--------------------------------------------------------------   \n");
+    do{
+    printf("            GIVE  THE  NUMBER  OF  BULLETS  TO  START        \n");
+    scanf("%d",&empty_bullets);
+    }while (empty_bullets%2==0);
+
+
+   for (i=1;i<empty_bullets;i++){
+           t[i]=1;
+           //printf(" %d ",t[i]);
+        }
+
+            srand(time(NULL));
+            bullet= rand()%empty_bullets+1;
+            t[bullet]=0;
+                                                  /*   for (i=1;i<empty_bullets;i++){
+                                                 printf(" %d \n",t[i]);
+                                                       } */
+                                                    printf(" \n  u gonna die at number %d  \n",bullet);
+
+player_names(player1,player2);
+        system ("cls");
+        system("COLOR 20");
+ printf("\n                                LET    THE    GAME    BEGIN                         \n ");
+printf("\npress any key to start   \n       ");
+getch();
+  do {
+    printf(" \n %s  try your shot   \n ",player1);
+       scanf("%d",&P1);
+        j=k+1;
+               if (t[j]==1){
+                    system("COLOR 20");
+                   printf(" \n ============= %s STILL ALIVE ================= \n",player1);
+
+                                  } else { system("COLOR 40");
+                                           printf("--------------------------------------------\n");
+                                           printf("         %s YOU DIED                        \n",player1);
+                                           printf("--------------------------------------------\n");
+                                            getch();
+                                            system("cls");
+                                            system("COLOR 6e");
+
+                    printf("\n\n\n\n\n\n\n\n\n\n\n                                       %s WON THE GAME \n",player2);
+
+
+                                   break;
+                                  }
+
+    printf(" \n  %s try your shot  \n",player2);
+    scanf("%d",&P2);
+    k=j+1;
+      if (t[k]==1){
+                   system("COLOR 20");
+                   printf("============= %s STILL ALIVE ================= \n",player2);
+                                  } else { system("COLOR 40");
+                                          printf("--------------------------------------------\n");
+                                          printf("        %s YOU DIED                   \n",player2);
+                                          printf("--------------------------------------------\n");
+                                          getch();
+                                          system("cls");
+                                          system("COLOR 6e");
+
+printf("\n\n\n\n\n\n\n\n\n\n\n                                       %s WON THE GAME \n",player1);
+
+                                     break;
+                                  }
+ }while(j<=empty_bullets || k<=empty_bullets );
+  getch();
+
+}
+
+
+void player_names(char player1[], char player2[]){
+        printf ("PLAYER 1 GIVE YOUR NAME \n");
+            scanf("%s",player1);
+
+        printf ("PLAYER 2 GIVE YOUR NAME \n");
+             scanf("%s",player2);
+
+}
+
+
